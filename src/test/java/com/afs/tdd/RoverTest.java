@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DemoTest {
+class RoverTest {
     @Test
     public void should_return_x_1_y_2_N_when_x_1_y_1_move_N() {
         LocationDirection input = new LocationDirection(1, 1, "N");
