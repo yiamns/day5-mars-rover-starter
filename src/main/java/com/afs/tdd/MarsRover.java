@@ -56,6 +56,27 @@ public class MarsRover {
         }
         return null;
     }
+
+    public static String moveBackward(LocationDirection input) {
+        switch (input.getDirection()) {
+            case "N":
+                input.setY(input.getY() - 1);
+                break;
+            case "S":
+                input.setY(input.getY() + 1);
+                break;
+            case "E":
+                input.setX(input.getX() - 1);
+                break;
+            case "W":
+                input.setX(input.getX() + 1);
+                break;
+            default:
+                return null;
+        }
+        return input.toString();
+    }
+
 }
 
 
