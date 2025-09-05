@@ -1,9 +1,11 @@
 package com.afs.tdd;
 
+import java.util.Arrays;
+
 public class MarsRover {
 
     public static String roverBatchMove(LocationDirection input, String[] commands) {
-        for (String command : commands) {
+        Arrays.stream(commands).forEach(command -> {
             switch (command) {
                 case "F":
                     moveForward(input);
@@ -18,10 +20,10 @@ public class MarsRover {
                     turnRight(input);
                     break;
                 default:
-                    // 可以选择抛异常或忽略非法命令
                     throw new IllegalArgumentException("Invalid command: " + command);
             }
-        }
+        });
+
         return input.toString();
     }
 
