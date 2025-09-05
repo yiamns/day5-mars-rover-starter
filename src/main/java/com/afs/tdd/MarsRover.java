@@ -2,59 +2,65 @@ package com.afs.tdd;
 
 public class MarsRover {
     public static String roverMove(LocationDirection input, String command) {
-        if (command.equals("M")) {
-            if (input.getDirection().equals("N")) {
-                input.setY(input.getY() + 1);
-                return input.toString();
-            }
-            if (input.getDirection().equals("S")) {
-                input.setY(input.getY() - 1);
-                return input.toString();
-            }
-            if (input.getDirection().equals("E")) {
-                input.setX(input.getX() + 1);
-                return input.toString();
-            }
-            if (input.getDirection().equals("W")) {
-                input.setX(input.getX() - 1);
-                return input.toString();
-            }
-        } else if (command.equals("L")) {
-            if (input.getDirection().equals("N")) {
-                input.setDirection("W");
-                return input.toString();
-            }
-            if (input.getDirection().equals("W")) {
-                input.setDirection("S");
-                return input.toString();
-            }
-            if (input.getDirection().equals("S")) {
-                input.setDirection("E");
-                return input.toString();
-            }
-            if (input.getDirection().equals("E")) {
-                input.setDirection("N");
-                return input.toString();
-            }
-        } else if (command.equals("R")) {
-            if (input.getDirection().equals("N")) {
-                input.setDirection("E");
-                return input.toString();
-            }
-            if (input.getDirection().equals("E")) {
-                input.setDirection("S");
-                return input.toString();
-            }
-            if (input.getDirection().equals("S")) {
-                input.setDirection("W");
-                return input.toString();
-            }
-            if (input.getDirection().equals("W")) {
-                input.setDirection("N");
-                return input.toString();
-            }
+        switch (command) {
+            case "M":
+                switch (input.getDirection()) {
+                    case "N":
+                        input.setY(input.getY() + 1);
+                        break;
+                    case "S":
+                        input.setY(input.getY() - 1);
+                        break;
+                    case "E":
+                        input.setX(input.getX() + 1);
+                        break;
+                    case "W":
+                        input.setX(input.getX() - 1);
+                        break;
+                    default:
+                        return null;
+                }
+                break;
+            case "L":
+                switch (input.getDirection()) {
+                    case "N":
+                        input.setDirection("W");
+                        break;
+                    case "W":
+                        input.setDirection("S");
+                        break;
+                    case "S":
+                        input.setDirection("E");
+                        break;
+                    case "E":
+                        input.setDirection("N");
+                        break;
+                    default:
+                        return null;
+                }
+                break;
+            case "R":
+                switch (input.getDirection()) {
+                    case "N":
+                        input.setDirection("E");
+                        break;
+                    case "E":
+                        input.setDirection("S");
+                        break;
+                    case "S":
+                        input.setDirection("W");
+                        break;
+                    case "W":
+                        input.setDirection("N");
+                        break;
+                    default:
+                        return null;
+                }
+                break;
+            default:
+                return null;
         }
-        return null;
+        return input.toString();
     }
 
     public static String moveBackward(LocationDirection input) {
