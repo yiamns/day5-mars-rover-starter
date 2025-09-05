@@ -2,22 +2,25 @@ package com.afs.tdd;
 
 public class MarsRover {
 
-    public static String roverMove(LocationDirection input, String command) {
-        switch (command) {
-            case "M":
-                moveForward(input);
-                break;
-            case "B":
-                moveBackward(input);
-                break;
-            case "L":
-                turnLeft(input);
-                break;
-            case "R":
-                turnRight(input);
-                break;
-            default:
-                return null;
+    public static String roverBatchMove(LocationDirection input, String[] commands) {
+        for (String command : commands) {
+            switch (command) {
+                case "F":
+                    moveForward(input);
+                    break;
+                case "B":
+                    moveBackward(input);
+                    break;
+                case "L":
+                    turnLeft(input);
+                    break;
+                case "R":
+                    turnRight(input);
+                    break;
+                default:
+                    // 可以选择抛异常或忽略非法命令
+                    throw new IllegalArgumentException("Invalid command: " + command);
+            }
         }
         return input.toString();
     }
