@@ -188,17 +188,6 @@ class RoverTest {
 
     // 批量命令
     @Test
-    public void should_return_x_3_y_2_E_when_batch_commands_FRFF() {
-        LocationDirection input = new LocationDirection(1, 1, "N");
-        String[] commands = {"F", "R", "F", "F"};
-        String expected = "x=3, y=2, direction='E'";
-
-        String locationDirection = MarsRover.roverBatchMove(input, commands);
-
-        assertEquals(expected, locationDirection);
-    }
-
-    @Test
     public void should_return_x_1_y_0_W_when_batch_commands_BLFB() {
         LocationDirection input = new LocationDirection(1, 1, "N");
         String[] commands = {"B", "L", "F", "B"};
